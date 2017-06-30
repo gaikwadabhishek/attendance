@@ -39,8 +39,8 @@ def signup(request):
 			user = form.save()
 			user.refresh_from_db()  # load the profile instance created by the signal
             #user.profile.birth_date = form.cleaned_data.get('birth_date')
-			user.profile.teacher_name = form.cleaned_data.get('teacher_name')
-			user.profile.subjects = form.cleaned_data.get('subjects')
+			user.teacher.teacher_name = form.cleaned_data.get('teacher_name')
+			user.teacher.subjects = form.cleaned_data.get('subjects')
 			user.refresh_from_db()
 			user.save()
 			raw_password = form.cleaned_data.get('password1')

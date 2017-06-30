@@ -3,6 +3,6 @@
 {% block title %}Login{% endblock %}
 {% block content %}
   <h2>Welcome, {{ user.get_full_name }} <small>{{ user.username }}</small>!</h2>
-  <p>Subjects taught by you: {{ user.profile.subjects }}</p>
+  <p>Subjects taught by you: {{ user.teacher.subjects }}</p>
 {% endblock %}
 
