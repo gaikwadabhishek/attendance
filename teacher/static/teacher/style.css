@@ -1,0 +1,9 @@
+body {
+    background: white url("images/background1.jpg");
+}
+.navbar{
+	border-radius: 0;
+}
+.navbar-brand{
+	font-family: 'Fredericka the Great', cursive;
+}
