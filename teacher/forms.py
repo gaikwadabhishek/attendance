@@ -7,7 +7,7 @@ class SignUpForm(UserCreationForm):
 	teacher_name = forms.CharField(max_length=50, help_text='Enter your full name')
 	#last_name = forms.CharField(max_length=30, required=False, help_text='Optional.')
 	email = forms.EmailField(max_length=254,  required=False, help_text='Optional. Inform a valid email address.')
-	subjects = forms.CharField(max_length=150, help_text='Subjects to be taught by you. Add subjects separated by a comma " , "')
+	subjects = forms.CharField(max_length=150, help_text='Subjects to be taught by you. Add subjects separated by a comma " "')
 
 	class Meta:
 		model = User
