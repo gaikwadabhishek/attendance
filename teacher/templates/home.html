@@ -2,7 +2,7 @@
 
 {% block title %}        Login{% endblock %}
 {% block content %}
-  <h2>&nbsp;&nbsp;     Welcome, {{ user.get_full_name }} <small>{{ user.username }}</small>!</h2>
+  <h2>&nbsp;&nbsp;     Welcome, {{ user.teacher.teacher_name }} (<small>{{ user.username }}</small>)!</h2>
   <h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subjects taught by you: {{ user.teacher.subjects }}</p></h3>
 
 {% endblock %}

@@ -11,7 +11,7 @@
     <input type="hidden" name="next" value="{{ next }}" />
     {% for field in form %}
       <p>
-        {{ field.label_tag }}<br>
+        {{ field.label_tag }}
         {{ field }}<br>
         {% for error in field.errors %}
           <p style="color: red">{{ error }}</p>
@@ -21,7 +21,7 @@
         {% endif %}
       </p>
     {% endfor %}
-    <button type="submit"><b>Log in</b></button>
+    <button type="submit" class="button button1"><b>Log in</b></button>
 	<br>
     <a href="{% url 'signup' %}">Haven't registered yet? Sign up</a>
   </form>

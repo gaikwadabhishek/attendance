@@ -10,15 +10,14 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, authenticate
 from django.shortcuts import render, redirect
 # Create your views here.
-'''def index(request):
-    all_objects = Teacher.objects.all()
-    html = ''
-    for teacher in all_objects:
-        url = "/teacher/" + str(teacher.teacher_username) + "/"
-        html += '<a href = "' + url + '">' +  teacher.teacher_name + '</a><br>'
-    return HttpResponse(html)
+# def index(request):
+#   all_objects = Teacher.objects.all()
+#   html = ''
+#   for teacher in all_objects:
+#       url = "/teacher/" + str(teacher.teacher_username) + "/"
+#       html += '<a href = "' + url + '">' +  teacher.teacher_name + '</a><br>'
+#   return HttpResponse(html)
 
-'''
 def detail(request, teacher_username):
 		try:
 			teacher_id = Teacher.objects.get(pk=album_id)
