@@ -21,7 +21,9 @@
 				<li class=""><a href="{% url 'home' %}"><span class="glyphicon glyphicon-user" ></span><b>&nbsp;&nbsp; Student</b></a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
+			{% if user.is_authenticated %}
 				<li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-off"></span><b>&nbsp;&nbsp; Logout</b></a></li>
+			{% endif %}
 			</ul>
 		  </div>
 		</nav>
