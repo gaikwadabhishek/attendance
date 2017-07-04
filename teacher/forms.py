@@ -30,3 +30,6 @@ class SignUpForm(UserCreationForm):
 			'password1':forms.TextInput(),
 			'password2':forms.TextInput()
 		}
+
+class AbsentForm(forms.Form):
+	absent_list = forms.CharField(help_text='Enter roll numbers of absent students separated by space')

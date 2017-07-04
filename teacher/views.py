@@ -23,7 +23,7 @@ def detail(request, teacher_username):
 			teacher_id = Teacher.objects.get(pk=album_id)
 		except Teacher.DoesNotExist:
 			raise Http404("Teacher Does Not Exist! ")
-			
+
 
 
 
@@ -51,3 +51,12 @@ def signup(request):
 	else:
 		form = SignUpForm()
 	return render(request, 'signup.html', {'form': form})
+
+def absentees(request):
+	form = AbsentForm()
+	if request.method=='POST':
+		form = AbsentForm(request.POST)
+		if form.is_valid():
+			cd = form.cleaned_data
+			absents = cd.get('absent_list')
+	return render(request,'absent.html',{'form':form})
