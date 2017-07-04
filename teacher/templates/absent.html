@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<form method="POST">
+  {% csrf_token %}
+  <input type="hidden" name="next" value="{{ next }}" />
+  {% for field in form %}
+    <p>
+      {{ field.label_tag }}
+      {{ field }}<br>
+    </p>
+  {% endfor %}
+    <button type="submit" class='button button1'>Submit</button>
+</form>
+{% endblock %}

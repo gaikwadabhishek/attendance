@@ -5,10 +5,11 @@ from django.conf.urls import include
 from django.template import loader
 from .models import Teacher
 from django.http import Http404
-from .forms import SignUpForm
+from .forms import SignUpForm,AbsentForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, authenticate
 from django.shortcuts import render, redirect
+from . import markAttendance
 # Create your views here.
 # def index(request):
 #   all_objects = Teacher.objects.all()
@@ -59,4 +60,5 @@ def absentees(request):
 		if form.is_valid():
 			cd = form.cleaned_data
 			absents = cd.get('absent_list')
+			markAttendance.mainWork(absents)
 	return render(request,'absent.html',{'form':form})
