@@ -6,15 +6,16 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <link rel = "stylesheet" type ="text/css" href =" {% static 'teacher/style.css' %}" />
+<link rel = "stylesheet" type ="text/css" href =" {% static 'teacher/base.css' %}" />
 <meta charset="utf-8">
 <title>{% block title %}Attendance Portal{% endblock %}</title>
 
 
 		<nav class="navbar navbar-inverse">
 		  <div class="container-fluid">
-			<div class="navbar-header">
+			<!--<div class="navbar-header">
 				<a class= " navbar-brand" href = "{% url 'home'%}">Attendace Portal</a>
-			</div>
+			</div>-->
 			<ul class="nav navbar-nav">
 				<li class=""><a href="/"><span class="glyphicon glyphicon-home"></span><b>&nbsp;&nbsp;Home</b></a></li>
 				<li class="active"><a href="{% url 'login' %}"><span class="glyphicon glyphicon-user"></span><b>&nbsp;&nbsp; Teacher</b></a></li>
@@ -36,16 +37,18 @@
 		</style>
 	</head>
   <body>
-    <header>
+<!--<<header>
       <center>
 	  <center><h1>Attendance Portal</h1><center>
       {% if user.is_authenticated %}
       <center><h4><a href="{% url 'logout' %}"><b>logout</b></a></h4></center>
       {% else %}
-      <center><h4><b><a href="{% url 'login' %}">Login</a>	/	<a href="{% url 'signup' %}">Sign-up</a></b></h4></center>
+      <center><h4>
+      <button type="button" onclick="window.location.href='{% url 'login' %}' ">LOGIN</button>
+      <button type="button" onclick="window.location.href='{% url 'signup' %}' ">Register</button></h4></center>
       {% endif %}
       <hr>
-    </header>
+    </header>-->
     <main>
 	<div class="container-fluid" style='margin-left:15px'>
 
