@@ -60,5 +60,10 @@ def absentees(request):
 		if form.is_valid():
 			cd = form.cleaned_data
 			absents = cd.get('absent_list')
-			markAttendance.mainWork(absents)
+			cl_division = cd.get('div')
+			subj = cd.get('subj')
+			print('\n'*3 + '*'*20 + '\n'*2)
+			print(subj,cl_division,absents)
+			print('\n'*2 + '*'*20 + '\n'*3)
+			markAttendance.mainWork(absents,subj,cl_division)
 	return render(request,'absent.html',{'form':form})
