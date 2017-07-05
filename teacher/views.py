@@ -5,10 +5,11 @@ from django.conf.urls import include
 from django.template import loader
 from .models import Teacher
 from django.http import Http404
-from .forms import SignUpForm
+from .forms import SignUpForm,AbsentForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, authenticate
 from django.shortcuts import render, redirect
+from . import markAttendance
 # Create your views here.
 # def index(request):
 #   all_objects = Teacher.objects.all()
@@ -23,7 +24,7 @@ def detail(request, teacher_username):
 			teacher_id = Teacher.objects.get(pk=album_id)
 		except Teacher.DoesNotExist:
 			raise Http404("Teacher Does Not Exist! ")
-			
+
 
 
 
@@ -51,3 +52,18 @@ def signup(request):
 	else:
 		form = SignUpForm()
 	return render(request, 'signup.html', {'form': form})
+
+def absentees(request):
+	form = AbsentForm()
+	if request.method=='POST':
+		form = AbsentForm(request.POST)
+		if form.is_valid():
+			cd = form.cleaned_data
+			absents = cd.get('absent_list')
+			cl_division = cd.get('div')
+			subj = cd.get('subj')
+			print('\n'*3 + '*'*20 + '\n'*2)
+			print(subj,cl_division,absents)
+			print('\n'*2 + '*'*20 + '\n'*3)
+			markAttendance.mainWork(absents,subj,cl_division)
+	return render(request,'absent.html',{'form':form})
